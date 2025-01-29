@@ -1,0 +1,13 @@
+input[type="checkbox"] {
+  appearance: none;
+  width: 0;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+}
+
+.icon-checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}

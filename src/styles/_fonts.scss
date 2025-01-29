@@ -1,0 +1,172 @@
+@use "./_sizes.scss";
+@use "./fonts/fonts-googleapis-css-lato.scss";
+@use "./fonts/fonts-googleapis-css-varelaround.scss";
+@use "./fonts/fonts-googleapis-icon-materialicons.scss";
+
+%standard-text {
+  font-family: Lato, "Helvetica Neue", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 180%;
+  color: var(--color-font);
+  letter-spacing: 0.005em;
+}
+
+%header {
+  font-family: Varela Round;
+  font-style: normal;
+  font-weight: normal;
+}
+
+h1 {
+  @extend %header;
+  font-size: 2.25rem;
+  line-height: 2.875rem;
+}
+
+h2 {
+  @extend %header;
+  font-size: 1.75rem;
+  line-height: 2.375rem;
+}
+
+h3 {
+  @extend %header;
+  font-size: 1.25rem;
+  line-height: 28px;
+}
+
+h4 {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.2px;
+  margin: 0;
+}
+
+summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+summary::before {
+  content: "▶︎";
+  width: 1em;
+  flex-shrink: 0;
+  transition: 0.3s;
+}
+details[open] > summary::before {
+  transform: rotate(90deg);
+  transform-origin: 40% 45% 0;
+}
+details[open] summary ~ * {
+  animation: sweep 0.5s ease-in-out;
+}
+
+@keyframes sweep {
+  0% {
+    opacity: 0;
+    margin-left: -10px;
+  }
+  100% {
+    opacity: 1;
+    margin-left: 0px;
+  }
+}
+
+@media print {
+  summary {
+    gap: 0px;
+  }
+  summary::before {
+    content: "";
+    width: 0em;
+    flex-shrink: 0;
+  }
+
+  html {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  .cover-title {
+    font-size: 60px;
+    line-height: 71px;
+    color: var(--color-dark-purple);
+  }
+  h1 {
+    font-size: 42px;
+    line-height: 49px;
+    color: var(--color-dark-purple);
+  }
+  h2 {
+    font-size: 42px;
+    line-height: 49px;
+    color: var(--color-dark-purple);
+  }
+  h3 {
+    font-family: Lato;
+    font-size: 25px;
+    line-height: 35px;
+    font-weight: bold;
+    color: var(--color-dark-purple);
+  }
+  h4 {
+    font-family: Lato;
+    font-size: 25px;
+    line-height: 35px;
+    font-weight: 700;
+    color: var(--color-dark-purple);
+  }
+  sub {
+    font-size: 21px;
+    line-height: 32px;
+  }
+  b {
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--color-dark-purple);
+  }
+
+  // Da im Designdokument das höchste Element "Titel" war, wurde hier h1 benutzt
+  // Dementsprechent wurde für Designdokumnet-h1 -> html-h2 benutzt usw.
+  // Hier wird es wieder richtig zugeordnet h1 -> h1
+  .print-header-scaling {
+    h1 {
+      font-size: 42px;
+      line-height: 49px;
+      color: var(--color-dark-purple);
+    }
+    h2 {
+      font-family: Lato;
+      font-size: 25px;
+      line-height: 35px;
+      font-weight: bold;
+      color: var(--color-dark-purple);
+    }
+    h3 {
+      font-family: Lato;
+      font-size: 25px;
+      line-height: 35px;
+      font-weight: 700;
+      color: var(--color-dark-purple);
+    }
+  }
+}
+
+.sub {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 130%;
+}
+
+p {
+  line-height: 160%;
+}

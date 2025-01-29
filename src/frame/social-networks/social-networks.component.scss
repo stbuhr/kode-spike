@@ -1,0 +1,22 @@
+:host {
+  display: grid;
+  gap: 1rem;
+  align-items: start;
+  padding: 2rem 0;
+  container-name: social-networks;
+  container-type: inline-size;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  gap: 0.2rem;
+  list-style: none;
+  padding: 0;
+}
+
+@container social-networks (width > 400px) {
+  ul {
+    gap: 1rem;
+  }
+}

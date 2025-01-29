@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="x" viewBox="0 0 42 42">
+    <path fill="currentColor" d="M2 2L40 34L40 40L8 2Z" />
+    <path fill="currentColor" d="M40 2L2 34L2 40L34 2Z" />
+  </symbol>
+</svg>

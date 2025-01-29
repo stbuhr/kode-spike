@@ -1,0 +1,32 @@
+:host {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  font-weight: bold;
+  padding-left: 1rem;
+  border-left: 1px solid gray;
+}
+
+.initials {
+  grid-column: 1;
+  grid-row: 1/3;
+  display: flex;
+  color: var(--color-highlight-text);
+  background-color: var(--color-highlight);
+  border-radius: 50%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem;
+  margin: 0.4rem 0.6rem 0.4rem 0.4rem;
+}
+
+.role {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.name {
+  grid-column: 2;
+  grid-row: 2;
+}

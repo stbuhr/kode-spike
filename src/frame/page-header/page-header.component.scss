@@ -1,0 +1,19 @@
+:host {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  padding: 1rem 1rem 2rem 1rem;
+  background-color: #ffffff;
+}
+
+.full-logo {
+  grid-column: 1;
+  height: 3rem;
+}
+
+isb-notification-indicator {
+  grid-column: 3;
+}
+
+isb-user-indicator {
+  grid-column: 4;
+}
