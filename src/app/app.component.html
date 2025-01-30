@@ -1,5 +1,5 @@
-<isb-page-header></isb-page-header>
-<isb-page-navigation></isb-page-navigation>
+<isb-page-header (changeMenuState)="toggleMenu($event)"></isb-page-header>
+<isb-page-navigation [isOpen]="menuIsOpen()"></isb-page-navigation>
 <div class="page-content">
   <router-outlet></router-outlet>
 </div>

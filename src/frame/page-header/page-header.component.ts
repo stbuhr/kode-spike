@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { UserIndicatorComponent } from '../user-indicator/user-indicator.component';
 import { NotificationIndicatorComponent } from '../notification-indicator/notification-indicator.component';
 import { HamburgerMenuButtonComponent } from '../../controls/hamburger-menu-button/hamburger-menu-button.component';
@@ -13,4 +13,10 @@ import { HamburgerMenuButtonComponent } from '../../controls/hamburger-menu-butt
   templateUrl: './page-header.component.html',
   styleUrl: './page-header.component.scss',
 })
-export class PageHeaderComponent {}
+export class PageHeaderComponent {
+  public changeMenuState = output<boolean>();
+
+  toggleMenu($event: boolean) {
+    this.changeMenuState.emit($event);
+  }
+}

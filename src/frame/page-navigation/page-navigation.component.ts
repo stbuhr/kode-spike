@@ -1,4 +1,4 @@
-import { Component, HostBinding, signal } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { IconCheckboxComponent } from '../../controls/icon-checkbox/icon-checkbox.component';
 import { RouterLink, RouterLinkActive } from '@angular/router';
@@ -8,16 +8,16 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   imports: [MatIconModule, IconCheckboxComponent, RouterLink, RouterLinkActive],
   templateUrl: './page-navigation.component.html',
   styleUrl: './page-navigation.component.scss',
+  host: {
+    '[class.small]': 'isSmall()',
+    '[class.open]': 'isOpen()',
+  },
 })
 export class PageNavigationComponent {
-  public isOpen = signal(true);
+  public isSmall = signal(false);
+  public isOpen = input(false);
 
   toggleWidth(isOpen: boolean) {
-    this.isOpen.set(isOpen);
-  }
-
-  @HostBinding('class')
-  get cssClass() {
-    return this.isOpen() ? 'opened' : 'closed';
+    this.isSmall.set(!isOpen);
   }
 }
