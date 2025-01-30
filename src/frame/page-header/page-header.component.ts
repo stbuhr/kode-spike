@@ -1,4 +1,4 @@
-import { Component, output } from '@angular/core';
+import { Component, output, viewChild } from '@angular/core';
 import { UserIndicatorComponent } from '../user-indicator/user-indicator.component';
 import { NotificationIndicatorComponent } from '../notification-indicator/notification-indicator.component';
 import { HamburgerMenuButtonComponent } from '../../controls/hamburger-menu-button/hamburger-menu-button.component';
@@ -15,8 +15,12 @@ import { HamburgerMenuButtonComponent } from '../../controls/hamburger-menu-butt
 })
 export class PageHeaderComponent {
   public changeMenuState = output<boolean>();
+  menuButton = viewChild(HamburgerMenuButtonComponent);
 
   toggleMenu($event: boolean) {
     this.changeMenuState.emit($event);
+  }
+  menuClosed() {
+    this.menuButton()?.toggle();
   }
 }
