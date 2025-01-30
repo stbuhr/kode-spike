@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
 import { UserIndicatorComponent } from '../user-indicator/user-indicator.component';
 import { NotificationIndicatorComponent } from '../notification-indicator/notification-indicator.component';
+import { HamburgerMenuButtonComponent } from '../../controls/hamburger-menu-button/hamburger-menu-button.component';
 
 @Component({
   selector: 'isb-page-header',
-  imports: [UserIndicatorComponent, NotificationIndicatorComponent],
+  imports: [
+    UserIndicatorComponent,
+    NotificationIndicatorComponent,
+    HamburgerMenuButtonComponent,
+  ],
   templateUrl: './page-header.component.html',
   styleUrl: './page-header.component.scss',
 })

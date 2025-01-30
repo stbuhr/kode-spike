@@ -3,18 +3,53 @@
 :host {
   container-name: page-footer;
   container-type: inline-size;
+
+  color: var(--color-highlight-text);
+  background-color: var(--color-highlight);
 }
 
 .footer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   padding: 0.5rem 1rem;
-  color: var(--color-highlight-text);
-  background-color: var(--color-highlight);
+}
+
+.rights {
+  border-top: 1px solid var(--color-highlight-text);
+  grid-column: 1/2;
+  text-align: right;
+  padding: 1rem 0;
+
+  span {
+    position: relative;
+    padding-left: 1rem;
+    white-space: nowrap;
+  }
+  span:not(:first-child)::before {
+    content: "-";
+    position: absolute;
+    left: 0.3rem;
+  }
+}
+
+@container page-footer (width >= 560px) {
+  .footer {
+    grid-template-columns: 1fr 1fr;
+    padding: 0.5rem 2rem;
+  }
+
+  .rights {
+    grid-column: 1/3;
+  }
 }
 
 @container page-footer (width >= 840px) {
   .footer {
     grid-template-columns: 3fr 2fr 4fr;
+    padding: 0.5rem 3rem;
+  }
+
+  .rights {
+    grid-column: 1/4;
   }
 }

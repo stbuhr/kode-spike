@@ -1,19 +1,44 @@
+@import "../../styles/sizes.scss";
+
 :host {
   display: grid;
-  grid-template-columns: auto 1fr auto auto;
-  padding: 1rem 1rem 2rem 1rem;
+  grid-template-columns: auto auto 1fr auto auto;
+  padding: 1rem 1rem 1rem 1rem;
   background-color: #ffffff;
 }
 
-.full-logo {
+isb-hamburger-menu-button {
   grid-column: 1;
+  margin: 0.4rem 1.5rem 0 1rem;
+}
+
+.full-logo {
+  grid-column: 2;
   height: 3rem;
+  width: 3rem;
+  object-fit: cover;
+  object-position: left;
 }
 
 isb-notification-indicator {
-  grid-column: 3;
+  grid-column: 4;
 }
 
 isb-user-indicator {
-  grid-column: 4;
+  grid-column: 5;
+}
+
+@media screen and (width >= $mobile-max-width) {
+  :host {
+    padding: 1rem 1rem 2rem 1rem;
+  }
+
+  isb-hamburger-menu-button {
+    display: none;
+  }
+
+  .full-logo {
+    width: auto;
+    object-fit: contain;
+  }
 }
