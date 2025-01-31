@@ -1,4 +1,4 @@
-@import "../../styles/sizes";
+@use "../../styles/sizes";
 
 :host {
   --navigation-full-width: 10rem;
@@ -26,7 +26,14 @@
   }
 }
 
-@media screen and (width > $mobile-max-width) {
+.header {
+  visibility: hidden;
+  height: 0;
+  padding: 0;
+  border-bottom: 1px solid var(--color-highlight-text);
+}
+
+@media screen and (width > sizes.$mobile-max-width) {
   :host {
     padding: 0.5rem 1rem;
     width: var(--navigation-full-width);
@@ -44,41 +51,7 @@
       color: transparent;
     }
   }
-}
 
-// :host {
-//   --navigation-full-width: 10rem;
-//   --navigation-small-width: 3.5rem;
-
-//   display: block;
-//   padding: 0.5rem 1rem;
-//   // width: var(--navigation-full-width);
-//   width: 0;
-
-//   transition: width 0.3s;
-// }
-
-// :host.closed {
-//   width: var(--navigation-small-width);
-
-//   .naventry {
-//     padding-left: 0;
-//     color: transparent;
-//   }
-// }
-
-// :host.visible {
-//   width: var(--navigation-full-width);
-// }
-
-.header {
-  visibility: hidden;
-  height: 0;
-  padding: 0;
-  border-bottom: 1px solid var(--color-highlight-text);
-}
-
-@media screen and (width > $mobile-max-width) {
   .header {
     visibility: visible;
     height: auto;

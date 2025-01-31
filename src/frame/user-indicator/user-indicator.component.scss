@@ -1,4 +1,4 @@
-@import "../../styles/sizes.scss";
+@use "../../styles/sizes";
 
 :host {
   display: grid;
@@ -35,7 +35,7 @@
   grid-row: 2;
 }
 
-@media screen and (width >= $mobile-max-width) {
+@media screen and (width >= sizes.$mobile-max-width) {
   .role {
     display: block;
   }
