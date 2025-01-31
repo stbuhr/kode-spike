@@ -1,0 +1,51 @@
+:host {
+  container-name: program-list-entry;
+  container-type: inline-size;
+
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "image title"
+    "image properties";
+  padding: 0.5rem 1rem;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+:host.error {
+  background-color: var(--color-error);
+}
+
+.image {
+  display: none;
+  grid-area: image;
+  padding-right: 1rem;
+  img {
+    width: 9rem;
+    height: 9rem;
+    object-fit: cover;
+    padding: 1rem;
+  }
+}
+
+.name {
+  grid-area: title;
+}
+
+.properties {
+  grid-area: properties;
+  line-height: 1.4rem;
+}
+
+.property.warning,
+.property.error {
+  font-weight: bold;
+}
+
+@container program-list-entry (width >= 480px) {
+  .image {
+    display: block;
+    padding-right: 2rem;
+  }
+}

@@ -3,6 +3,16 @@
 @use "./fonts/fonts-googleapis-css-varelaround.scss";
 @use "./fonts/fonts-googleapis-icon-materialicons.scss";
 
+body {
+  font-size: 90%;
+}
+
+@media screen and (width > sizes.$mobile-max-width) {
+  body {
+    font-size: 100%;
+  }
+}
+
 %standard-text {
   font-family: Lato, "Helvetica Neue", sans-serif;
   font-style: normal;

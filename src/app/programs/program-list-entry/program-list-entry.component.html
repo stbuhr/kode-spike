@@ -1,0 +1,26 @@
+<div class="image">
+  <img
+    src="assets/program-type/{{ programTypeImage() }}"
+    alt="{{ programName() }}"
+  />
+</div>
+<div class="name">
+  <h2>{{ programName() }}</h2>
+</div>
+<div class="properties">
+  <div class="property">
+    {{ programTypeName() }}
+  </div>
+  <div class="property">
+    <span>Erstellt am:</span> {{ programStartDate() | date : "shortDate" }}
+  </div>
+  @switch (programState()) { @case ('NotActivated') {
+  <div class="property error">Noch nicht aktiviert</div>
+  } @case ('Completed') {
+  <div class="property warning">Abgeschlossen</div>
+  } @default {
+  <div class="property">
+    <span>Aktivert am:</span> {{ programActivationDate() | date : "shortDate" }}
+  </div>
+  } }
+</div>

@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
+import { ProgramListEntryComponent } from './program-list-entry/program-list-entry.component';
 
 @Component({
   selector: 'isb-programs',
-  imports: [],
+  imports: [ProgramListEntryComponent],
   templateUrl: './programs.component.html',
-  styleUrl: './programs.component.scss'
+  styleUrl: './programs.component.scss',
 })
-export class ProgramsComponent {
-
-}
+export class ProgramsComponent {}
