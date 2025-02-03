@@ -1,10 +1,13 @@
 @use "../../styles/sizes.scss";
 
 :host {
+  background-color: #ffffff;
+}
+
+.container {
   display: grid;
   grid-template-columns: auto auto 1fr auto auto;
   padding: 1rem 1rem 1rem 1rem;
-  background-color: #ffffff;
 }
 
 isb-hamburger-menu-button {
@@ -29,7 +32,7 @@ isb-user-indicator {
 }
 
 @media screen and (width >= sizes.$mobile-max-width) {
-  :host {
+  .container {
     padding: 1rem 1rem 2rem 1rem;
   }
 
