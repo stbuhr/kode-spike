@@ -1,0 +1,7 @@
+@if (programInfos().length === 0) {
+  <p>Keine Programme vorhanden</p>
+} @else {
+  @for (info of programInfos(); track info.name) {
+    <isb-program-list-entry [programInfo]="info"></isb-program-list-entry>
+  }
+}

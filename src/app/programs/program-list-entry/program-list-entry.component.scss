@@ -17,6 +17,10 @@
   background-color: var(--color-error);
 }
 
+:host.inactive {
+  background-color: var(--color-inactive);
+}
+
 .image {
   display: none;
   grid-area: image;
