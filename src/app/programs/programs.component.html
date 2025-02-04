@@ -1,1 +1,5 @@
-<isb-program-list-entry></isb-program-list-entry>
+@if (loading()) {
+  <p>Daten werden geladen ...</p>
+} @else {
+  <isb-program-list [programInfos]="programInfos()"></isb-program-list>
+}

@@ -1,11 +1,8 @@
 import { DatePipe } from '@angular/common';
-import { Component, input, signal } from '@angular/core';
-
-export enum ProgramState {
-  NotActivated = 'NotActivated',
-  InProgress = 'InProgress',
-  Completed = 'Completed',
-}
+import { Component, computed, input } from '@angular/core';
+import { ProgramInfo } from '../../data/program-info';
+import { TranslationService } from '../../api-access/translation.service';
+import { ProgramType } from '../../data/program-type.enum';
 
 @Component({
   selector: 'isb-program-list-entry',
@@ -14,14 +11,39 @@ export enum ProgramState {
   styleUrl: './program-list-entry.component.scss',
   host: {
     '[class.error]': 'programState() === "NotActivated"',
-    '[class.warning]': 'programState() === "Completed"',
+    '[class.inactive]': 'programState() === "Completed"',
   },
 })
 export class ProgramListEntryComponent {
-  programTypeImage = input('competence-check.jpg');
-  programName = input('Cornerstone Module');
-  programTypeName = input('KODE® KompetenzCheck');
-  programStartDate = input('01.01.2021');
-  programState = input(ProgramState.NotActivated);
-  programActivationDate = input('01.01.2021');
+  programInfo = input.required<ProgramInfo>();
+
+  programTypeImage = computed(() =>
+    this.getProgramTypeImageName(this.programInfo().programType),
+  );
+  programName = computed(() => this.programInfo().name);
+  programTypeName = computed(() =>
+    this.translationService.translate(this.programInfo().programType),
+  );
+  programStartDate = computed(() => this.programInfo().startDate);
+  programState = computed(() => this.programInfo().programState);
+  programActivationDate = computed(() => this.programInfo().activationDate);
+
+  constructor(private translationService: TranslationService) {}
+
+  getProgramTypeImageName(programType: ProgramType): string {
+    switch (programType) {
+      case ProgramType.CompetenceCheck:
+        return 'competence-check.jpg';
+      case ProgramType.CompetenceCheckPlus:
+        return 'competence-check-plus.jpg';
+      case ProgramType.Leadership:
+        return 'leadership.jpg';
+      case ProgramType.AgileFeedback:
+        return 'agile-feedback.jpg';
+      case ProgramType.YoungTalents:
+        return 'young-talents.jpg';
+      default:
+        return 'none.jpg';
+    }
+  }
 }

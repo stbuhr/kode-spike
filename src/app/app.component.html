@@ -1,14 +1,16 @@
 <isb-page-header (changeMenuState)="toggleMenu($event)"></isb-page-header>
+<isb-page-navigation
+  [isOpen]="menuIsOpen()"
+  (closeMenu)="closeMenu()"
+></isb-page-navigation>
+<div class="container">
+  <div class="page-content">
+    <router-outlet></router-outlet>
+  </div>
+  <isb-page-footer></isb-page-footer>
+</div>
 <div
   class="navigation-background"
   [class.opened]="menuIsOpen()"
   (click)="closeMenu()"
 ></div>
-<isb-page-navigation
-  [isOpen]="menuIsOpen()"
-  (closeMenu)="closeMenu()"
-></isb-page-navigation>
-<div class="page-content">
-  <router-outlet></router-outlet>
-</div>
-<isb-page-footer></isb-page-footer>
