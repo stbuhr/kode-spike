@@ -1,5 +1,7 @@
-@if (loading()) {
-  <p>Daten werden geladen ...</p>
-} @else {
-  <isb-program-list [programInfos]="programInfos()"></isb-program-list>
-}
+<div class="container">
+  @if (loading()) {
+    <p>Daten werden geladen ...</p>
+  } @else {
+    <isb-program-list [programInfos]="programInfos()"></isb-program-list>
+  }
+</div>

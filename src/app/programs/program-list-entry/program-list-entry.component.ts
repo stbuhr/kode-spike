@@ -15,22 +15,23 @@ import { ProgramType } from '../../data/program-type.enum';
   },
 })
 export class ProgramListEntryComponent {
-  programInfo = input.required<ProgramInfo>();
+  programInfo = input<ProgramInfo>();
 
   programTypeImage = computed(() =>
-    this.getProgramTypeImageName(this.programInfo().programType),
+    this.getProgramTypeImageName(this.programInfo()?.programType),
   );
-  programName = computed(() => this.programInfo().name);
+  programName = computed(() => this.programInfo()?.name);
   programTypeName = computed(() =>
-    this.translationService.translate(this.programInfo().programType),
+    this.translationService.translate(this.programInfo()?.programType ?? ''),
   );
-  programStartDate = computed(() => this.programInfo().startDate);
-  programState = computed(() => this.programInfo().programState);
-  programActivationDate = computed(() => this.programInfo().activationDate);
+  programStartDate = computed(() => this.programInfo()?.startDate);
+  programState = computed(() => this.programInfo()?.programState);
+  programActivationDate = computed(() => this.programInfo()?.activationDate);
+  countOfPrograms = input<number>(0);
 
   constructor(private translationService: TranslationService) {}
 
-  getProgramTypeImageName(programType: ProgramType): string {
+  getProgramTypeImageName(programType: ProgramType | undefined): string {
     switch (programType) {
       case ProgramType.CompetenceCheck:
         return 'competence-check.jpg';

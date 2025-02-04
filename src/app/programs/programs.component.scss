@@ -1,0 +1,11 @@
+@use "../../styles/sizes";
+
+.container {
+  padding: 0;
+}
+
+@media screen and (width >= sizes.$mobile-max-width) {
+  .container {
+    padding: 2rem;
+  }
+}

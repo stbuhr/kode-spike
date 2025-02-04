@@ -1,0 +1,48 @@
+:host {
+  display: block;
+}
+
+.container {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.list-header {
+  position: relative;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+  padding: 0.5rem;
+  cursor: pointer;
+
+  .arrow {
+    position: absolute;
+    right: 0.5rem;
+  }
+}
+
+isb-program-list-entry {
+  border-bottom: 1px solid #ccc;
+  transition: padding 0.5s;
+}
+
+.drop-down-item {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  border-bottom: none;
+  padding: 0;
+  transition: grid-template-rows 0.5s;
+
+  isb-program-list-entry {
+    border-bottom: none;
+    padding: 0;
+  }
+}
+
+.drop-down-item.open {
+  grid-template-rows: 1fr;
+}
+
+isb-program-list-entry:last-child {
+  border-bottom: none;
+}
