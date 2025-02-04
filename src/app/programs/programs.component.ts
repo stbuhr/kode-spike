@@ -18,7 +18,6 @@ export class ProgramsComponent implements OnInit {
 
   async ngOnInit() {
     this.programLoaderService.getProgramInfos().subscribe((programInfos) => {
-      console.log('ProgramInfos:', programInfos);
       this.programInfos.set(programInfos);
       this.loading.set(false);
     });

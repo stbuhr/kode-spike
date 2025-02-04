@@ -31,11 +31,10 @@ isb-program-list-entry:hover {
 }
 
 .drop-down-item {
-  display: grid;
-  grid-template-rows: 0fr;
+  height: 0;
   overflow: hidden;
   border-bottom: none;
-  transition: grid-template-rows 0.5s;
+  transition: height 0.5s;
 
   isb-program-list-entry {
     border-bottom: none;
@@ -43,7 +42,7 @@ isb-program-list-entry:hover {
 }
 
 .drop-down-item.open {
-  grid-template-rows: 1fr;
+  height: auto;
 
   isb-program-list-entry {
     border-bottom: none;

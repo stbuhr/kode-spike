@@ -18,9 +18,18 @@ export class ProgramListComponent {
   toggleOpen() {
     this.isOpen.set(!this.isOpen());
   }
+
   selectInfo(info: ProgramInfo) {
     this.selectedInfo.set(info);
     this.isOpen.set(false);
     this.selectionChanged.emit(info);
+    this.gotoTop();
+  }
+
+  gotoTop() {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth',
+    });
   }
 }
