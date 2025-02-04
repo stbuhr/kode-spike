@@ -12,6 +12,7 @@ import { ProgramLoaderService } from '../api-access/program-loader.service';
 export class ProgramsComponent implements OnInit {
   loading = signal<boolean>(true);
   programInfos = signal<ProgramInfo[]>([]);
+  activeProgram = signal<ProgramInfo | undefined>(undefined);
 
   constructor(private programLoaderService: ProgramLoaderService) {}
 
@@ -21,5 +22,9 @@ export class ProgramsComponent implements OnInit {
       this.programInfos.set(programInfos);
       this.loading.set(false);
     });
+  }
+
+  selectProgram($event: ProgramInfo) {
+    this.activeProgram.set($event);
   }
 }

@@ -22,7 +22,12 @@
 
 isb-program-list-entry {
   border-bottom: 1px solid #ccc;
+  cursor: pointer;
   transition: padding 0.5s;
+}
+
+isb-program-list-entry:hover {
+  border: 1px solid #240066;
 }
 
 .drop-down-item {
@@ -30,17 +35,19 @@ isb-program-list-entry {
   grid-template-rows: 0fr;
   overflow: hidden;
   border-bottom: none;
-  padding: 0;
   transition: grid-template-rows 0.5s;
 
   isb-program-list-entry {
     border-bottom: none;
-    padding: 0;
   }
 }
 
 .drop-down-item.open {
   grid-template-rows: 1fr;
+
+  isb-program-list-entry {
+    border-bottom: none;
+  }
 }
 
 isb-program-list-entry:last-child {

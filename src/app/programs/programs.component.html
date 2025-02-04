@@ -1,7 +1,13 @@
 <div class="container">
+  <h1>Programme</h1>
   @if (loading()) {
     <p>Daten werden geladen ...</p>
   } @else {
-    <isb-program-list [programInfos]="programInfos()"></isb-program-list>
+    <isb-program-list
+      [programInfos]="programInfos()"
+      (selectionChanged)="selectProgram($event)"
+    ></isb-program-list>
+
+    <p>{{ activeProgram()?.name }}</p>
   }
 </div>

@@ -4,43 +4,49 @@
     alt="{{ programName() }}"
   />
 </div>
-<div class="name">
-  <h2>{{ programName() }}</h2>
+<div class="content">
+  @if (programInfo() === undefined) {
+    <div class="name">
+      <h2>Du hast noch kein Programm ausgewählt.</h2>
+    </div>
+    <div class="properties">
+      <div class="property">
+        Du bist zur Zeit Coach in
+        {{
+          countOfPrograms() == 1
+            ? "einem Programm"
+            : countOfPrograms() + " Programmen"
+        }}.
+      </div>
+      <div class="property">
+        Bitte wähle ein Programm aus der Liste aus, um die Details anzuzeigen.
+      </div>
+    </div>
+  } @else {
+    <div class="name">
+      <h2>{{ programName() }}</h2>
+    </div>
+    <div class="properties">
+      <div class="property">
+        {{ programTypeName() }}
+      </div>
+      <div class="property">
+        <span>Erstellt am:</span> {{ programStartDate() | date: "dd.MM.yyyy" }}
+      </div>
+      @switch (programState()) {
+        @case ("NotActivated") {
+          <div class="property error">Noch nicht aktiviert</div>
+        }
+        @case ("Completed") {
+          <div class="property warning">Abgeschlossen</div>
+        }
+        @default {
+          <div class="property">
+            <span>Aktivert am:</span>
+            {{ programActivationDate() | date: "dd.MM.yyyy" }}
+          </div>
+        }
+      }
+    </div>
+  }
 </div>
-@if (programInfo() === undefined) {
-  <div class="properties">
-    <p class="property error">Du hast noch kein Programm ausgewählt.</p>
-    <p>
-      Du bist zur Zeit Coach in
-      {{
-        countOfPrograms() == 1
-          ? "einem Programm"
-          : countOfPrograms() + " Programmen"
-      }}.<br />
-      Bitte wähle ein Programm aus der Liste aus, um die Details anzuzeigen.
-    </p>
-  </div>
-} @else {
-  <div class="properties">
-    <div class="property">
-      {{ programTypeName() }}
-    </div>
-    <div class="property">
-      <span>Erstellt am:</span> {{ programStartDate() | date: "shortDate" }}
-    </div>
-    @switch (programState()) {
-      @case ("NotActivated") {
-        <div class="property error">Noch nicht aktiviert</div>
-      }
-      @case ("Completed") {
-        <div class="property warning">Abgeschlossen</div>
-      }
-      @default {
-        <div class="property">
-          <span>Aktivert am:</span>
-          {{ programActivationDate() | date: "shortDate" }}
-        </div>
-      }
-    }
-  </div>
-}

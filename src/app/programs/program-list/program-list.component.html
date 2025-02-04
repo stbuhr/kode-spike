@@ -15,7 +15,10 @@
     ></isb-program-list-entry>
     @for (info of programInfos(); track info.name) {
       <div class="drop-down-item" [class.open]="isOpen()">
-        <isb-program-list-entry [programInfo]="info"></isb-program-list-entry>
+        <isb-program-list-entry
+          (click)="selectInfo(info)"
+          [programInfo]="info"
+        ></isb-program-list-entry>
       </div>
     }
   }

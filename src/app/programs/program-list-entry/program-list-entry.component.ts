@@ -16,6 +16,7 @@ import { ProgramType } from '../../data/program-type.enum';
 })
 export class ProgramListEntryComponent {
   programInfo = input<ProgramInfo>();
+  countOfPrograms = input<number>(0);
 
   programTypeImage = computed(() =>
     this.getProgramTypeImageName(this.programInfo()?.programType),
@@ -27,7 +28,6 @@ export class ProgramListEntryComponent {
   programStartDate = computed(() => this.programInfo()?.startDate);
   programState = computed(() => this.programInfo()?.programState);
   programActivationDate = computed(() => this.programInfo()?.activationDate);
-  countOfPrograms = input<number>(0);
 
   constructor(private translationService: TranslationService) {}
 

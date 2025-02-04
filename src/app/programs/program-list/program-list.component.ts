@@ -1,4 +1,4 @@
-import { Component, computed, input, signal } from '@angular/core';
+import { Component, computed, input, output, signal } from '@angular/core';
 import { ProgramInfo } from '../../data/program-info';
 import { ProgramListEntryComponent } from '../program-list-entry/program-list-entry.component';
 
@@ -10,11 +10,17 @@ import { ProgramListEntryComponent } from '../program-list-entry/program-list-en
 })
 export class ProgramListComponent {
   programInfos = input.required<ProgramInfo[]>();
+  selectionChanged = output<ProgramInfo>();
   selectedInfo = signal<ProgramInfo | undefined>(undefined);
   isOpen = signal(false);
   countOfInfos = computed(() => this.programInfos().length);
 
   toggleOpen() {
     this.isOpen.set(!this.isOpen());
+  }
+  selectInfo(info: ProgramInfo) {
+    this.selectedInfo.set(info);
+    this.isOpen.set(false);
+    this.selectionChanged.emit(info);
   }
 }
