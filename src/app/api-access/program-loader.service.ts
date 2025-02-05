@@ -16,7 +16,7 @@ export class ProgramLoaderService {
         activationDate: new Date('2025-01-29'),
       },
       {
-        programType: ProgramType.CompetenceCheckPlus,
+        programType: ProgramType.CompetenceCheckPremium,
         programState: ProgramState.NotActivated,
         name: 'Feedback Team',
         startDate: new Date('2025-01-28'),

@@ -1,6 +1,6 @@
 export enum ProgramType {
   CompetenceCheck = 'CompetenzCheck',
-  CompetenceCheckPlus = 'CompetenzCheckPlus',
+  CompetenceCheckPremium = 'CompetenzCheckPlus',
   Leadership = 'Leadership',
   Feedback = 'Feedback',
   AgileFeedback = 'AgileFeedback',

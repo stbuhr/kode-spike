@@ -34,17 +34,19 @@ export class ProgramListEntryComponent {
   getProgramTypeImageName(programType: ProgramType | undefined): string {
     switch (programType) {
       case ProgramType.CompetenceCheck:
-        return 'competence-check.jpg';
-      case ProgramType.CompetenceCheckPlus:
-        return 'competence-check-plus.jpg';
+        return 'competence-check.svg';
+      case ProgramType.CompetenceCheckPremium:
+        return 'competence-check-premium.svg';
       case ProgramType.Leadership:
-        return 'leadership.jpg';
+        return 'leadership.svg';
+      case ProgramType.Feedback:
+        return 'feedback.svg';
       case ProgramType.AgileFeedback:
-        return 'agile-feedback.jpg';
+        return 'agile-feedback.svg';
       case ProgramType.YoungTalents:
-        return 'young-talents.jpg';
+        return 'young-talents.svg';
       default:
-        return 'none.jpg';
+        return 'none.svg';
     }
   }
 }
