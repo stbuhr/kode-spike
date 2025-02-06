@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" #container (focusout)="focusOut($event)">
   <div class="list-header" (click)="toggleOpen()">
     <span>Bitte wähle ein Programm aus</span>
     <span class="arrow material-symbols-rounded">
@@ -10,15 +10,27 @@
   } @else {
     <isb-program-list-entry
       (click)="toggleOpen()"
+      (keydown.enter)="toggleOpen()"
+      (keydown.space)="toggleOpen()"
+      (keydown.arrowdown)="focusFirst($event)"
       [programInfo]="selectedInfo()"
       [countOfPrograms]="countOfInfos()"
+      tabindex="1"
+      role="button"
     ></isb-program-list-entry>
     @for (info of programInfos(); track info.name) {
-      <div class="drop-down-item" [class.open]="isOpen()">
-        <isb-program-list-entry
-          (click)="selectInfo(info)"
-          [programInfo]="info"
-        ></isb-program-list-entry>
+      <div
+        class="drop-down-item"
+        [class.open]="isOpen()"
+        (click)="selectInfo(info)"
+        (keydown.enter)="selectInfo(info)"
+        (keydown.space)="selectInfo(info)"
+        (keydown.arrowup)="focusPrev($event)"
+        (keydown.arrowdown)="focusNext($event)"
+        role="listitem"
+        tabindex="1"
+      >
+        <isb-program-list-entry [programInfo]="info"></isb-program-list-entry>
       </div>
     }
   }

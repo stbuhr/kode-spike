@@ -26,15 +26,20 @@ isb-program-list-entry {
   transition: padding 0.5s;
 }
 
-isb-program-list-entry:hover {
-  border: 1px solid #240066;
+@media (hover) {
+  isb-program-list-entry:hover {
+    border: 1px solid #240066;
+  }
 }
 
 .drop-down-item {
   height: 0;
+  visibility: hidden;
   overflow: hidden;
   border-bottom: none;
-  transition: height 0.5s;
+  transition:
+    height 0.5s,
+    visibility 0.5s;
 
   isb-program-list-entry {
     border-bottom: none;
@@ -43,6 +48,7 @@ isb-program-list-entry:hover {
 
 .drop-down-item.open {
   height: auto;
+  visibility: visible;
 
   isb-program-list-entry {
     border-bottom: none;

@@ -80,7 +80,9 @@ a.naventry {
   color: var(--color-highlight-text);
   overflow: hidden;
 
-  transition: background-color 0.3s, color 0.3s padding 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s padding 0.3s;
 
   mat-icon {
     position: absolute;
@@ -89,12 +91,14 @@ a.naventry {
   }
 }
 
-a.naventry:hover {
-  background-color: rgb(256, 256, 256, 80%);
-  color: var(--color-highlight);
-
-  mat-icon {
+@media (hover) {
+  a.naventry:hover {
+    background-color: rgb(256, 256, 256, 80%);
     color: var(--color-highlight);
+
+    mat-icon {
+      color: var(--color-highlight);
+    }
   }
 }
 

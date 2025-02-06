@@ -1,4 +1,12 @@
-import { Component, computed, input, output, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  ElementRef,
+  input,
+  output,
+  signal,
+  viewChild,
+} from '@angular/core';
 import { ProgramInfo } from '../../data/program-info';
 import { ProgramListEntryComponent } from '../program-list-entry/program-list-entry.component';
 
@@ -14,22 +22,76 @@ export class ProgramListComponent {
   selectedInfo = signal<ProgramInfo | undefined>(undefined);
   isOpen = signal(false);
   countOfInfos = computed(() => this.programInfos().length);
+  container = viewChild.required<ElementRef>('container');
+
+  constructor(private elementRef: ElementRef) {}
 
   toggleOpen() {
     this.isOpen.set(!this.isOpen());
+    this.scrollIntoView();
   }
 
   selectInfo(info: ProgramInfo) {
     this.selectedInfo.set(info);
     this.isOpen.set(false);
     this.selectionChanged.emit(info);
-    this.gotoTop();
+    this.scrollIntoView();
+    this.focusTop();
   }
 
-  gotoTop() {
-    window.scroll({
-      top: 0,
+  scrollIntoView() {
+    const item = this.elementRef.nativeElement.querySelector('[role="button"]');
+    item.scrollIntoView({
       behavior: 'smooth',
+      block: 'center',
     });
+  }
+
+  focusOut(event: FocusEvent) {
+    if (!this.elementRef.nativeElement.contains(event.relatedTarget as Node)) {
+      this.isOpen.set(false);
+    }
+  }
+
+  focusTop() {
+    const item = this.elementRef.nativeElement.querySelector('[role="button"]');
+    item.focus();
+  }
+
+  focusFirst(event: Event) {
+    this.isOpen.set(true);
+    const items =
+      this.elementRef.nativeElement.querySelectorAll('.drop-down-item');
+    items[0].focus();
+
+    event.preventDefault();
+  }
+
+  focusPrev(event: Event) {
+    const target = event.target as HTMLElement;
+    const items =
+      this.elementRef.nativeElement.querySelectorAll('.drop-down-item');
+    const index = Array.from(items).indexOf(target);
+
+    if (index > 0) {
+      items[index - 1].focus();
+    } else if (index === 0) {
+      this.focusTop();
+    }
+
+    event.preventDefault();
+  }
+
+  focusNext(event: Event) {
+    const target = event.target as HTMLElement;
+    const items =
+      this.elementRef.nativeElement.querySelectorAll('.drop-down-item');
+    const index = Array.from(items).indexOf(target);
+
+    if (index !== -1 && index < items.length - 1) {
+      items[index + 1].focus();
+    }
+
+    event.preventDefault();
   }
 }
