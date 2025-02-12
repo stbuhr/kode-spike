@@ -1,12 +1,4 @@
-import {
-  Component,
-  computed,
-  ElementRef,
-  input,
-  output,
-  signal,
-  viewChild,
-} from '@angular/core';
+import { Component, computed, ElementRef, input, output, signal, viewChild } from '@angular/core';
 import { ProgramInfo } from '../../data/program-info';
 import { ProgramListEntryComponent } from '../program-list-entry/program-list-entry.component';
 
@@ -41,10 +33,7 @@ export class ProgramListComponent {
 
   scrollIntoView() {
     const item = this.elementRef.nativeElement.querySelector('[role="button"]');
-    item.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center',
-    });
+    item.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
   focusOut(event: FocusEvent) {
@@ -60,8 +49,7 @@ export class ProgramListComponent {
 
   focusFirst(event: Event) {
     this.isOpen.set(true);
-    const items =
-      this.elementRef.nativeElement.querySelectorAll('.drop-down-item');
+    const items = this.elementRef.nativeElement.querySelectorAll('.drop-down-item');
     items[0].focus();
 
     event.preventDefault();
@@ -69,8 +57,7 @@ export class ProgramListComponent {
 
   focusPrev(event: Event) {
     const target = event.target as HTMLElement;
-    const items =
-      this.elementRef.nativeElement.querySelectorAll('.drop-down-item');
+    const items = this.elementRef.nativeElement.querySelectorAll('.drop-down-item');
     const index = Array.from(items).indexOf(target);
 
     if (index > 0) {
@@ -84,8 +71,7 @@ export class ProgramListComponent {
 
   focusNext(event: Event) {
     const target = event.target as HTMLElement;
-    const items =
-      this.elementRef.nativeElement.querySelectorAll('.drop-down-item');
+    const items = this.elementRef.nativeElement.querySelectorAll('.drop-down-item');
     const index = Array.from(items).indexOf(target);
 
     if (index !== -1 && index < items.length - 1) {

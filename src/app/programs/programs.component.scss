@@ -1,7 +1,11 @@
-@use "../../styles/sizes";
+@use '../../styles/sizes';
 
 .container {
   padding: 0;
+}
+
+isb-program-list {
+  margin-bottom: 2rem;
 }
 
 @media screen and (width >= sizes.$mobile-max-width) {

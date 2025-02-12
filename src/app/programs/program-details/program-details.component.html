@@ -1,0 +1,21 @@
+@switch (program()?.programType) {
+  @case ('CompetenceCheck') {
+    <isb-competence-check-details
+      [details]="competenceCheckDetails()"
+    ></isb-competence-check-details>
+  }
+  @case ('CompetenceCheckPlus') {
+    <p>KompetenzCheck Premium</p>
+  }
+  @default {
+    <p>Unbekannt</p>
+  }
+}
+<div class="actions">
+  @if (program()?.programState === 'NotActivated') {
+    <button class="small-button primary">Programm aktivieren</button>
+  }
+  <button class="small-button">Programm ändern</button>
+  <button class="small-button">Programm löschen</button>
+  <button class="small-button">Mehr Informationen</button>
+</div>

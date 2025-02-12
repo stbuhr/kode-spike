@@ -1,0 +1,54 @@
+:host {
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 1rem;
+}
+
+.small-button {
+  --focus-distance: -6px;
+  position: relative;
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  border: 2px solid var(--color-highlight);
+  border-radius: 9999px;
+  color: var(--color-highlight);
+  background-color: var(--color-highlight-text);
+  cursor: pointer;
+
+  transition:
+    color 0.3s,
+    background-color 0.3s;
+}
+
+.small-button:hover {
+  color: var(--color-highlight-text);
+  background-color: var(--color-highlight);
+}
+
+.small-button.primary {
+  color: var(--color-highlight-text);
+  background-color: var(--color-highlight);
+}
+
+.small-button.primary:hover {
+  color: var(--color-highlight);
+  background-color: var(--color-highlight-text);
+}
+
+.small-button:focus:before {
+  content: '';
+  position: absolute;
+  left: var(--focus-distance);
+  top: var(--focus-distance);
+  right: var(--focus-distance);
+  bottom: var(--focus-distance);
+  border: 2px dashed var(--color-highlight);
+  border-radius: 9999px;
+}

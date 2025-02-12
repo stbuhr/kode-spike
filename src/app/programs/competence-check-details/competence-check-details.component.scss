@@ -1,0 +1,39 @@
+:host {
+  display: block;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.infos {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.2rem 1rem;
+  align-content: start;
+
+  .name {
+    grid-column: 1;
+  }
+  .value {
+    grid-column: 2;
+  }
+  .info {
+    grid-column: 1 / span 2;
+  }
+  .listitem {
+    display: list-item;
+    grid-column: 1 / span 2;
+    margin-left: 2rem;
+  }
+  .range {
+    margin-top: 0.5rem;
+  }
+}
+
+.usage {
+  min-width: 18rem;
+  min-height: 20rem;
+  border: 1px solid green;
+}

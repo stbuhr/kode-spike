@@ -1,8 +1,5 @@
 <div class="image">
-  <img
-    src="assets/program-type/{{ programTypeImage() }}"
-    alt="{{ programName() }}"
-  />
+  <img src="assets/program-type/{{ programTypeImage() }}" alt="{{ programName() }}" />
 </div>
 <div class="content">
   @if (programInfo() === undefined) {
@@ -12,11 +9,7 @@
     <div class="properties">
       <div class="property">
         Du bist zur Zeit Coach in
-        {{
-          countOfPrograms() == 1
-            ? "einem Programm"
-            : countOfPrograms() + " Programmen"
-        }}.
+        {{ countOfPrograms() == 1 ? 'einem Programm' : countOfPrograms() + ' Programmen' }}.
       </div>
       <div class="property">
         Bitte wähle ein Programm aus der Liste aus, um die Details anzuzeigen.
@@ -31,19 +24,19 @@
         {{ programTypeName() }}
       </div>
       <div class="property">
-        <span>Erstellt am:</span> {{ programStartDate() | date: "dd.MM.yyyy" }}
+        <span>Erstellt am:</span> {{ programStartDate() | date: 'dd.MM.yyyy' }}
       </div>
       @switch (programState()) {
-        @case ("NotActivated") {
+        @case ('NotActivated') {
           <div class="property error">Noch nicht aktiviert</div>
         }
-        @case ("Completed") {
+        @case ('Completed') {
           <div class="property warning">Abgeschlossen</div>
         }
         @default {
           <div class="property">
             <span>Aktivert am:</span>
-            {{ programActivationDate() | date: "dd.MM.yyyy" }}
+            {{ programActivationDate() | date: 'dd.MM.yyyy' }}
           </div>
         }
       }

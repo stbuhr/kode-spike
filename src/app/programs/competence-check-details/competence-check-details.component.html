@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="infos">
+    <span class="name">Start:</span>
+    <span class="value">{{ startDate() | date: 'dd.MM.yyyy' }}</span>
+    <span class="name">Ende:</span>
+    <span class="value">{{ endDate() | date: 'dd.MM.yyyy' }}</span>
+    <span class="value">noch {{ daysLeft() }} Tage</span>
+    <span class="name range">Organisation:</span>
+    <span class="value range">{{ organizationName() }}</span>
+    <span class="name">Teilnehmende:</span>
+    <span class="value">14</span>
+    <span class="info range"
+      >Fremdeinschätzungen sind {{ allowThirdPartyAssessment() ? '' : 'nicht' }} erlaubt</span
+    >
+    <span class="name range">Sollprofile:</span>
+    @for (profile of profiles(); track profile.id) {
+      <span class="listitem">{{ profile.name }}</span>
+    }
+  </div>
+  <div class="usage"></div>
+</div>

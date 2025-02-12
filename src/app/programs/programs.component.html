@@ -8,6 +8,8 @@
       (selectionChanged)="selectProgram($event)"
     ></isb-program-list>
 
-    <p>{{ activeProgram()?.name }}</p>
+    @if (!!programData()) {
+      <isb-program-details [program]="programData()"></isb-program-details>
+    }
   }
 </div>
