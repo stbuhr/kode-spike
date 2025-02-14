@@ -5,11 +5,7 @@ import { HamburgerMenuButtonComponent } from '../../controls/hamburger-menu-butt
 
 @Component({
   selector: 'isb-page-header',
-  imports: [
-    UserIndicatorComponent,
-    NotificationIndicatorComponent,
-    HamburgerMenuButtonComponent,
-  ],
+  imports: [UserIndicatorComponent, NotificationIndicatorComponent, HamburgerMenuButtonComponent],
   templateUrl: './page-header.component.html',
   styleUrl: './page-header.component.scss',
 })

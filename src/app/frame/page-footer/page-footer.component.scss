@@ -1,4 +1,4 @@
-@use "../../styles/sizes";
+@use '../../../styles/sizes';
 
 :host {
   container-name: page-footer;
@@ -27,7 +27,7 @@
     white-space: nowrap;
   }
   span:not(:first-child)::before {
-    content: "-";
+    content: '-';
     position: absolute;
     left: 0.3rem;
   }
