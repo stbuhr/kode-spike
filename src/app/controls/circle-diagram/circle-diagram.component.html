@@ -1,0 +1,9 @@
+<div class="diagram">
+  <svg viewBox="-20 -20 240 240">
+    @for (segment of segments(); track segment.path) {
+      <path [attr.d]="segment.path" [attr.fill]="segment.color"></path>
+    }
+    <circle cx="100" cy="100" r="60" fill="white"></circle>
+  </svg>
+</div>
+<div class="legend"></div>
