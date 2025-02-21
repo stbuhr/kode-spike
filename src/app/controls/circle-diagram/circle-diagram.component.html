@@ -1,9 +1,29 @@
-<div class="diagram">
-  <svg viewBox="-20 -20 240 240">
-    @for (segment of segments(); track segment.path) {
-      <path [attr.d]="segment.path" [attr.fill]="segment.color"></path>
+<div class="container">
+  <div class="diagram">
+    <svg viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="80" fill="none" stroke="#f0f0f0" stroke-width="40"></circle>
+      @for (segment of segments(); track segment.dasharray) {
+        <circle
+          class="segment"
+          cx="100"
+          cy="100"
+          r="80"
+          stroke-width="40"
+          fill="none"
+          [attr.stroke]="segment.color"
+          [attr.stroke-dasharray]="segment.dasharray"
+          stroke-dashoffset="0"
+          transform="rotate(-90 100 100)"
+        ></circle>
+      }
+    </svg>
+  </div>
+  <div class="legend">
+    @for (segment of segments(); track segment.dasharray) {
+      <div class="legend-item">
+        <div class="legend-color" [style.background-color]="segment.color"></div>
+        <div class="legend-label">{{ segment.label }}</div>
+      </div>
     }
-    <circle cx="100" cy="100" r="60" fill="white"></circle>
-  </svg>
+  </div>
 </div>
-<div class="legend"></div>

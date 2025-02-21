@@ -1,8 +1,53 @@
 :host {
   display: block;
+  container-type: inline-size;
+  container-name: circle-diagram;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 2rem;
+}
+
+@container circle-diagram (min-width: 30rem) {
+  .container {
+    grid-template-columns: auto 1fr;
+  }
 }
 
 .diagram {
   width: 12rem;
   height: 12rem;
+}
+
+.segment {
+  animation: grow 1.5s ease-out forwards;
+}
+
+@keyframes grow {
+  from {
+    stroke-dashoffset: 502.4;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.legend {
+  display: grid;
+  align-content: center;
+  gap: 0.5rem;
+}
+
+.legend-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+
+  .legend-color {
+    width: 3rem;
+    height: 1.5rem;
+    border-radius: 0.25rem;
+  }
 }
