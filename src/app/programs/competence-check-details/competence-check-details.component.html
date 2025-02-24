@@ -17,5 +17,11 @@
       <span class="listitem">{{ profile.name }}</span>
     }
   </div>
-  <div class="usage"></div>
+  <div class="usage">
+    <isb-circle-diagram
+      [strokeWidth]="50"
+      inactiveColor="#BCBCBC"
+      [values]="segments()"
+    ></isb-circle-diagram>
+  </div>
 </div>

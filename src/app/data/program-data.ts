@@ -11,7 +11,15 @@ export interface ProgramData extends ProgramInfo {
   numberOfParticipants: number;
 }
 
+export interface CompetenceCheckStatistics {
+  numberOfParticipantsFinished: number;
+  numberOfParticipantsStarted: number;
+  numberOfParticipantsRegistered: number;
+  numberOfParticipantsNotRegistered: number;
+}
+
 export interface CompetenceCheckData extends ProgramData {
   allowThirdPartyAssessment: boolean;
   profileInfos: ProfileInfo[];
+  statistics: CompetenceCheckStatistics;
 }

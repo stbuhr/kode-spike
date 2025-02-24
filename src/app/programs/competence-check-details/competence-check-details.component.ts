@@ -1,10 +1,11 @@
 import { Component, computed, input } from '@angular/core';
 import { CompetenceCheckData } from '../../data/program-data';
 import { DatePipe } from '@angular/common';
+import { CircleDiagramComponent } from '../../controls/circle-diagram/circle-diagram.component';
 
 @Component({
   selector: 'isb-competence-check-details',
-  imports: [DatePipe],
+  imports: [DatePipe, CircleDiagramComponent],
   templateUrl: './competence-check-details.component.html',
   styleUrl: './competence-check-details.component.scss',
 })
@@ -23,4 +24,30 @@ export class CompetenceCheckDetailsComponent {
   organizationName = computed(() => this.details()?.organizationName);
   allowThirdPartyAssessment = computed(() => this.details()?.allowThirdPartyAssessment);
   profiles = computed(() => this.details()?.profileInfos);
+  segments = computed(() =>
+    this.details()
+      ? [
+          {
+            value: this.details()!.statistics.numberOfParticipantsFinished,
+            color: '#00CC99',
+            legend: 'Fertiggestellt',
+          },
+          {
+            value: this.details()!.statistics.numberOfParticipantsStarted,
+            color: '#F16D49',
+            legend: 'Angefangen',
+          },
+          {
+            value: this.details()!.statistics.numberOfParticipantsRegistered,
+            color: '#FFB349',
+            legend: 'Angemeldet',
+          },
+          {
+            value: this.details()!.statistics.numberOfParticipantsNotRegistered,
+            color: '#BCBCBC',
+            legend: 'Nicht angemeldet',
+          },
+        ]
+      : [],
+  );
 }

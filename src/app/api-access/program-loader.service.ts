@@ -78,6 +78,12 @@ export class ProgramLoaderService {
       numberOfParticipants: 14,
       allowThirdPartyAssessment: true,
       profileInfos: [{ id: '1', name: 'Interkulturelle Kompetenz' }],
+      statistics: {
+        numberOfParticipantsFinished: 8,
+        numberOfParticipantsStarted: 4,
+        numberOfParticipantsRegistered: 2,
+        numberOfParticipantsNotRegistered: 3,
+      },
     }).pipe(delay(200));
   }
 
@@ -99,6 +105,12 @@ export class ProgramLoaderService {
         { id: '3', name: 'Vertriebs- und Verhandlungskompetenz' },
         { id: '4', name: 'Selbstentwicklungskompetenz' },
       ],
+      statistics: {
+        numberOfParticipantsFinished: 8,
+        numberOfParticipantsStarted: 4,
+        numberOfParticipantsRegistered: 2,
+        numberOfParticipantsNotRegistered: 5,
+      },
     }).pipe(delay(200));
   }
 

@@ -12,9 +12,9 @@ import {
 })
 export class DashboardComponent {
   segments: CircleDiagramSegment[] = [
-    { value: 12, color: '#FF0000', legend: 'Red' },
-    { value: 10, color: '#00FF00', legend: 'Green' },
-    { value: 0, color: '#00FFFF', legend: 'Yellow' },
-    { value: 33, color: '#0000FF', legend: 'Blue' },
+    { value: 12, color: '#00CC99', legend: 'Fertiggestellt' },
+    { value: 10, color: '#F16D49', legend: 'Angefangen' },
+    { value: 0, color: '#FFB349', legend: 'Angemeldet' },
+    { value: 33, color: '#BCBCBC', legend: 'Nicht angemeldet' },
   ];
 }

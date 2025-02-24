@@ -1,14 +1,21 @@
 <div class="container">
   <div class="diagram">
     <svg viewBox="0 0 200 200">
-      <circle cx="100" cy="100" r="80" fill="none" stroke="#f0f0f0" stroke-width="40"></circle>
-      @for (segment of segments(); track segment.dasharray) {
+      <circle
+        cx="100"
+        cy="100"
+        [attr.r]="radius()"
+        fill="none"
+        [attr.stroke]="inactiveColor()"
+        [attr.stroke-width]="strokeWidth()"
+      ></circle>
+      @for (segment of segments(); track segment.index) {
         <circle
           class="segment"
           cx="100"
           cy="100"
-          r="80"
-          stroke-width="40"
+          [attr.r]="radius()"
+          [attr.stroke-width]="strokeWidth()"
           fill="none"
           [attr.stroke]="segment.color"
           [attr.stroke-dasharray]="segment.dasharray"
@@ -19,7 +26,7 @@
     </svg>
   </div>
   <div class="legend">
-    @for (segment of segments(); track segment.dasharray) {
+    @for (segment of segments(); track segment.index) {
       <div class="legend-item">
         <div class="legend-color" [style.background-color]="segment.color"></div>
         <div class="legend-label">{{ segment.label }}</div>

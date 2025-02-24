@@ -7,15 +7,22 @@
 
 .actions {
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
   padding-top: 1rem;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 30rem) {
+  .actions {
+    flex-direction: row;
+  }
 }
 
 .small-button {
   --focus-distance: -6px;
   position: relative;
   padding: 0.5rem 1rem;
-  margin-left: 1rem;
   border: 2px solid var(--color-highlight);
   border-radius: 9999px;
   color: var(--color-highlight);
