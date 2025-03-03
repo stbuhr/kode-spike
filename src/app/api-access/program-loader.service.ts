@@ -7,7 +7,7 @@ import { CompetenceCheckData, ProgramData } from '../data/program-data';
 
 @Injectable({ providedIn: 'root' })
 export class ProgramLoaderService {
-  getProgramInfos(): Observable<ProgramInfo[]> {
+  getProgramInfos(userId: string): Observable<ProgramInfo[]> {
     const programInfos: ProgramInfo[] = [
       {
         id: '1',

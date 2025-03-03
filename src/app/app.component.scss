@@ -1,4 +1,4 @@
-@use "../styles/sizes";
+@use '../styles/sizes';
 
 :host {
   position: fixed;
@@ -70,5 +70,7 @@ isb-page-footer {
 
   .page-content {
     min-height: 20rem;
+    max-width: 80rem;
+    margin: 0 auto;
   }
 }

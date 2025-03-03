@@ -1,7 +1,7 @@
-@use "./_sizes.scss";
-@use "./fonts/fonts-googleapis-css-lato.scss";
-@use "./fonts/fonts-googleapis-css-varelaround.scss";
-@use "./fonts/fonts-googleapis-icon-materialicons.scss";
+@use './_sizes.scss';
+@use './fonts/fonts-googleapis-css-lato.scss';
+@use './fonts/fonts-googleapis-css-varelaround.scss';
+@use './fonts/fonts-googleapis-icon-materialicons.scss';
 
 body {
   font-size: 90%;
@@ -14,7 +14,7 @@ body {
 }
 
 %standard-text {
-  font-family: Lato, "Helvetica Neue", sans-serif;
+  font-family: Lato, 'Helvetica Neue', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 1rem;
@@ -33,6 +33,10 @@ h1 {
   @extend %header;
   font-size: 2.25rem;
   line-height: 2.875rem;
+}
+
+h1:first-of-type {
+  margin-top: 0;
 }
 
 h2 {
@@ -67,7 +71,7 @@ summary {
   cursor: pointer;
 }
 summary::before {
-  content: "▶︎";
+  content: '▶︎';
   width: 1em;
   flex-shrink: 0;
   transition: 0.3s;
@@ -96,7 +100,7 @@ details[open] summary ~ * {
     gap: 0px;
   }
   summary::before {
-    content: "";
+    content: '';
     width: 0em;
     flex-shrink: 0;
   }
